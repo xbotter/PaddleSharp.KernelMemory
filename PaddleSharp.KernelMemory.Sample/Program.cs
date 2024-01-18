@@ -1,5 +1,6 @@
 ﻿using Microsoft.KernelMemory;
-using Sdcb.PaddleOCR.Models.Local;
+using Sdcb.OpenVINO.PaddleOCR.Models.Online;
+
 
 var memory = new KernelMemoryBuilder()
     .WithAzureOpenAITextGeneration(new AzureOpenAIConfig()
@@ -16,7 +17,8 @@ var memory = new KernelMemoryBuilder()
         Deployment = "text-embedding-ada-002",
         Auth = AzureOpenAIConfig.AuthTypes.APIKey
     })
-    .WithPaddleSharpOcr(LocalFullModels.EnglishV3)
+    // .WithPaddleSharpOcr(LocalFullModels.EnglishV3)
+    .WithOpenVINOPaddleOcr(await OnlineFullModels.EnglishV4.DownloadAsync())
     .Build();
 
 await memory.ImportDocumentAsync("./kernel_memory_readme.png");

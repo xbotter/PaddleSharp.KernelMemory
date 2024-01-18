@@ -8,11 +8,14 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.KernelMemory.Abstractions" Version="0.26.240104.1" />
 
+		<PackageReference Include="Sdcb.OpenVINO.PaddleOCR" Version="0.6.3" />
+
 		<PackageReference Include="Sdcb.PaddleInference" Version="2.5.0.1" />
 		<PackageReference Include="Sdcb.PaddleOCR" Version="2.7.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(OS)' == 'Windows_NT'">
+		<PackageReference Include="Sdcb.OpenVINO.runtime.win-x64" Version="2024.0.0-preview.1" />
 		<PackageReference Include="Sdcb.PaddleInference.runtime.win64.mkl" Version="2.5.1" />
 		<PackageReference Include="OpenCvSharp4.runtime.win" Version="4.9.0.20240103" />
 	</ItemGroup>
